@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Career Hunter Sign Up Form
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400i|Muli:900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="signup-bar" id="signupbar">
+        <h1> Sign Up </h1>
+    </div>
+    <div class="menu-wrap">
+        <input type="checkbox" class="toggler">
+        <div class="hamburger">
+            <div>
+            </div>
+        </div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        <li><a href="./index.html">Back To Home Page</a></li>
+                        <li><a href="./index.html#index-service">Service</a></li>
+                        <li><a href="./index.html#index-whyus">WhyUs</a></li>
+                        <li><a href="./index.html#index-about">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="landing.html" method="GET" class="form-basicinfo" id="form-basicinfo">
+
+
+
+        <fieldset>
+
+            <legend><span class="form-basicinfo-section">1</span>Your Basic Info</legend>
+
+            <div class="form-basicinfo-blockgrid">
+                <label class="" for="name">Full Name</label>
+                <input type="text" name="name" value="" required placeholder="Name is required for further use ">
+            </div>
+            <div class="form-basicinfo-blockgrid">
+                <label class="" for="email">Email</label>
+                <input type="email" name="email" value="">
+            </div>
+            <div class="form-basicinfo-blockgrid">
+                <label class="" for="emailconfirm">Email confirm</label>
+                <input type="email" name="email" value="">
+            </div>
+            <div class="form-basicinfo-blockgrid"></div>
+            <label class="" for="password">Password</label>
+            <input type="password" name="password" value="">
+            </div>
+            <div class="form-basicinfo-blockgrid"></div>
+            <label class="" for="password">Password confirm</label>
+            <input type="password" name="password" value="">
+            </div>
+            <div class="form-basicinfo-blockgrid"></div>
+            <label class="" for="dateofbirth">Date of Birth</label>
+            <input type="text" name="dateofbirth" value="">
+            </div>
+
+
+            <label class="form-basicinfo-title-gender">Gender</label>
+            <div class="form-basicinfo-blockgrid-gender"></div>
+            <input type="radio" name="gender" value="Male">
+            <label class="light" for="under_18">Male</label>
+            </div>
+            <div class="form-basicinfo-blockgrid-gender">
+                <input type="radio" name="gender" value="Female">
+                <label class="light" for="over_18">Female</label>
+            </div>
+            <div class="form-basicinfo-blockgrid-gender">
+                <input type="radio" name="gender" value="Other">
+                <label class="light" for="over_18">Other</label>
+            </div>
+
+            <div class="form-basicinfo-blockgrid"></div>
+            <label class="" for="post code">Post code</label>
+            <input type="text" name="post code" value="">
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend><span class="form-basicinfo-section">2</span>Your Profile</legend>
+            <div class="form-basicinfo-blockgrid">
+                <label class="" for="bio">Your Bio:</label>
+                <textarea name="Bio"></textarea>
+            </div>
+
+            <div class="form-basicinfo-blockgrid">
+                <label for="job">Job Role:</label>
+                <select name="job">
+                    <optgroup label="Worker">
+                        <option value="Entrepreneurship">Entrepreneurship</option>
+                        <option value="Unemployed">Unemployed</option>
+                        <option value="In Employment">In Employment</option>
+                    </optgroup>
+                    <optgroup label="University student">
+                        <option value="Entrepreneurship">Entrepreneurship</option>
+                        <option value="Unemployed">Unemployed</option>
+                        <option value="In Employment">In Employment</option>
+                    </optgroup>
+                    <optgroup label="Angel with disabilities">
+                        <option value="Entrepreneurship">Entrepreneurship</option>
+                        <option value="Unemployed">Unemployed</option>
+                        <option value="In Employment">In Employment</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <label class=form-basicinfo-title-interests>Interests:</label>
+            <div class="form-basicinfo-blockgrid-interests">
+                <input type="checkbox" value="interest_development" name="user_interest">
+                <label class="light" for="development">Sport</label>
+            </div>
+            <div class="form-basicinfo-blockgrid-interests">
+                <input type="checkbox" value="interest_design" name="user_interest">
+                <label class="light" for="design">Music</label>
+            </div>
+            <div class="form-basicinfo-blockgrid-interests"></div>
+            <input type="checkbox" value="interest_business" name="user_interest">
+            <label class="light" for="business">Design</label>
+            </div>
+            <div class="form-basicinfo-blockgrid-interests">
+                <input type="checkbox" value="interest_development" name="user_interest">
+                <label class="light" for="development">Travelling</label>
+            </div>
+            <div class="form-basicinfo-blockgrid-interests">
+                <input type="checkbox" value="interest_design" name="user_interest">
+                <label class="light" for="design">Painting</label>
+            </div>
+            <div class="form-basicinfo-blockgrid-interests"></div>
+            <input type="checkbox" value="interest_business" name="user_interest">
+            <label class="light" for="business">Animal care</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend><span class="form-basicinfo-section">3</span>Setup payment / This can be fill up later </legend>
+
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="xxxx-xxxx-xxxx-xxxx">
+            <label for="expmonth">Exp Month</label>
+            <select id="expmonth" name="expmonth">
+                <optgroup label="please select the expired month shows on card ">
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March ">March </option>
+                    <option value="April ">April </option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July ">July </option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November ">November </option>
+                    <option value="December ">December </option>
+                </optgroup>
+            </select>
+
+            <label for="expyear">Exp Year</label>
+            <input type="text" id="expyear" name="expyear" placeholder="">
+
+
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" placeholder="x-x-x">
+
+        </fieldset>
+
+        <label class="form-rememberme">
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+
+        <p class="form-agreement">By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms &
+                Privacy</a>.</p>
+
+        <div class="form-submit">
+            <button type="submit" value="submit" class="form-signupbutton" onclick="location.href='landing.html'">Sign
+                Up</button>
+    </form>
+    <script src="javascript/script.js"></script>
+
+</body>
+<footer>
+    <ul class="footer-links-main">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Service</a></li>
+        <li><a href="#">Why Us</a></li>
+        <li><a href="#">Sign Up</a></li>
+    </ul>
+    <ul class="footer-links-service">
+        <li>Coach Hunter 2019</li>
+        <li><a href="#">Online career planning test </a></li>
+        <li><a href="#">Online Psychological test </a></li>
+        <li><a href="#">Online real-time guidance </a></li>
+        <li><a href="#">Targeted planning and supervision </a></li>
+    </ul>
+    <div class="footer-sm">
+        <a href="#">
+            <img src="./image/socialmediaicon-yt.png" alt="youtube icon" />
+        </a>
+        <a href="#">
+            <img src="./image/socialmediaicon-fb.png" alt="facebook icon" />
+        </a>
+        <a href="#"></a>
+        <img src="./image/socialmediaicon-tw.png" alt="twitter icon" />
+        </a>
+    </div>
+</footer>
+
+</html>

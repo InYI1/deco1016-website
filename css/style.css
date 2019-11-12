@@ -1,0 +1,2090 @@
+/* Reset defaults margin to keep the same postion layout for different web browser */
+body {
+    margin: 0;
+    background-color: #f3f3f3;
+}
+
+* {
+    text-decoration: none;
+}
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+.signup-button {
+    cursor: pointer;
+}
+
+/* Navigation bar */
+
+:root {
+    --primary-color: #4603ff;
+    --overlay-color: rgba(24, 39, 51, 0.85);
+    --menu-speed: 0.75;
+}
+
+
+
+.menu-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+
+.menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 3vh;
+    height: 3vh;
+    padding: 1rem;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Hamburger Line*/
+.menu-wrap .hamburger>div {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+
+}
+
+/* top and bottom line*/
+.menu-wrap .hamburger>div::before,
+.menu-wrap .hamburger>div:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+}
+
+/* move line down*/
+.menu-wrap .hamburger>div:after {
+    top: 10px;
+}
+
+/* Toggler animate */
+.menu-wrap .toggler:checked+.hamburger>div {
+    transform: rotate(135deg);
+}
+
+/* Turn lines in to X*/
+.menu-wrap .toggler:checked+.hamburger>div::before,
+.menu-wrap .toggler:checked+.hamburger>div::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+/* Rotate on hover when checked */
+.menu-wrap .toggler:checked:hover+.hamburger>div {
+    transform: rotate(225deg);
+}
+
+
+/* Show menu */
+.menu-wrap .toggler:checked~.menu {
+    visibility: visible;
+}
+
+.menu-wrap .toggler:checked~.menu>div {
+    transform: scale(1);
+    transition-duration: var(--menu-speed);
+}
+
+.menu-wrap .toggler:checked~.menu>div>div {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-wrap .menu>div {
+    background: var(--overlay-color);
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.menu-wrap .menu>div>div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0, 3s ease;
+}
+
+.menu-wrap .menu>div>div>ul {
+    margin: 0;
+    padding: 0;
+
+}
+
+.menu-wrap .menu>div>div>ul>li {
+    list-style: none;
+    color: #fff;
+    font-family: Muli;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.menu-wrap .menu>div>div>ul>li>a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu-wrap .menu>div>div>ul>li>a:hover {
+    color: #fff;
+    background-color: var(--primary-color);
+}
+
+.index-signup-button {
+    display: none;
+}
+
+
+/* Sign-up-button desktop grid */
+@media only screen and (min-width: 1000px) {
+
+    #menu-signup-box {
+        display: none;
+    }
+
+    .index-signup-button {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 6vw;
+        height: 6vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px var(--primary-color)solid;
+        color: var(--primary-color);
+        font-family: Muli;
+        font-size: 2vh;
+    }
+
+    .index-signup-button a {
+        color: var(--primary-color);
+        font-size: 2vh;
+    }
+
+    .index-signup-button a:hover {
+        font-size: 2.4vh;
+        background-color: var(--primary-color);
+        color: white;
+    }
+}
+
+
+/*INDEX*/
+
+.index-introduction {
+    width: 100%;
+    height: 85vh;
+    background-image: url('../image/introdution-backgroundimage2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: table;
+}
+
+.index-introduction-text {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.index-introduction h1 {
+    margin: 0;
+    font-family: Muli;
+    font-weight: 900;
+    font-size: 2em;
+    line-height: 1em;
+    padding: 0px 15vw 0px 10vw;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-name: moveRight;
+}
+
+@keyframes moveRight {
+    from {
+        transform: translate(-20vw);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0px);
+        opacity: 100%;
+    }
+}
+
+.index-introduction h2 {
+    margin: 0;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 5vh 20vw 0 10vw;
+    color: #3a3a3a;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-name: moveLeft;
+}
+
+@keyframes moveLeft {
+    from {
+        transform: translate(20vw);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0);
+        opacity: 100%;
+    }
+}
+
+.index-intro-vector {
+    width: 25vw;
+    float: right;
+    padding-right: 20vw;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-name: moveLeft;
+
+}
+
+.index-signup {
+    padding: 6vh 0 0 8vw;
+}
+
+
+
+.signup-button,
+.story-button {
+    margin: 0;
+    font-family: Lato;
+    font-size: 1em;
+    color: whitesmoke;
+    background-color: #4603ff;
+    height: 7vh;
+    width: 40vw;
+    border-radius: 50em;
+    -webkit-transition-duration: 0.3s;
+    /* Safari */
+    transition-duration: 0.3s;
+    box-shadow: 0 0.4em 1em slategray;
+    border: none;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-name: moveRight;
+
+}
+
+.signup-button:hover,
+.story-button:hover {
+    background-color: #f9a928;
+}
+
+/* Index Introduction page desktop grid*/
+@media only screen and (min-width: 1000px) {
+    .index-introduction {
+        width: 100%;
+        height: 100vh;
+        background-image: url('../image/introdution-backgroundimage2.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: table;
+    }
+
+    .index-introduction-text {
+        display: table-cell;
+        vertical-align: middle;
+
+    }
+
+    .index-introduction h1 {
+        margin: 0;
+        font-family: Muli;
+        font-weight: 900;
+        font-size: 5em;
+        padding: 0 0 0 11vw;
+    }
+
+    .index-introduction h2 {
+        margin: 0;
+        font-family: Lato;
+        font-weight: 400;
+        font-size: 2em;
+        line-height: 1.25em;
+        padding: 2em 60vw 0px 11vw;
+        color: #3a3a3a;
+    }
+
+    .index-intro-vector {
+        width: 20vw;
+        float: right;
+        padding-right: 20vw;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-name: moveLeft;
+
+    }
+
+    .index-signup {
+        margin: 0 auto;
+        padding: 10em 0 0 11vw;
+    }
+
+    .signup-button,
+    .story-button {
+        margin: 0;
+        font-family: Lato;
+        font-size: 1.25em;
+        color: whitesmoke;
+        background-color: #4603ff;
+        height: 2.2em;
+        width: 14vw;
+        border-radius: 5em;
+        -webkit-transition-duration: 0.3s;
+        /* Safari */
+        transition-duration: 0.3s;
+        box-shadow: 0 0.5em 1em slategray;
+        border: none;
+
+    }
+
+    .signup-button:hover,
+    .story-button:hover {
+        background-color: #f9a928;
+
+    }
+
+}
+
+.index-about {
+    width: 100%;
+    height: 115vh;
+    background-color: white;
+    background-image: url('../image/about-backgroundimage.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: table;
+}
+
+.index-about-text {
+    display: table-cell;
+    vertical-align: middle;
+
+}
+
+.index-about h1 {
+    margin: 0;
+    font-family: Muli;
+    font-weight: 900;
+    font-size: 2em;
+    line-height: 1em;
+    padding: 0px 15vw 0px 10vw;
+
+}
+
+.index-about h2 {
+    margin: 0;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 5vh 10vw 0 10vw;
+    color: #3a3a3a;
+
+}
+
+.index-about-button {
+    padding: 6vh 0 0 8vw;
+
+}
+
+.horizontal-line {
+    width: 100%;
+    height: 1px;
+    background-color: #4603ff;
+}
+
+/* ABOUT US page desktop grid */
+@media only screen and (min-width: 1000px) {
+    .index-about h1 {
+        margin: 0;
+        font-family: Muli;
+        font-weight: 900;
+        font-size: 5em;
+        padding: 0 0 0 11vw;
+
+    }
+
+    .index-about h2 {
+        margin: 0;
+        font-family: Lato;
+        font-weight: 400;
+        font-size: 2em;
+        line-height: 1.25em;
+        padding: 2em 20vw 0px 11vw;
+        color: #3a3a3a;
+    }
+
+    .index-about-button {
+        margin: 0 auto;
+        padding: 10em 0 0 11vw;
+    }
+
+    .horizontal-line {
+        width: 100%;
+        height: 1px;
+        background-color: #4603ff;
+    }
+}
+
+.index-service {
+    width: 100%;
+    height: 160vh;
+    background-color: white;
+    display: table;
+}
+
+.index-shell {
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.index-service-title h1 {
+    margin: 0;
+    font-family: Muli;
+    font-weight: 900;
+    font-size: 2em;
+    line-height: 1em;
+    padding: 0px 15vw 0px 10vw;
+}
+
+.index-service-title h2 {
+    margin: 0;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 5vh 10vw 0 10vw;
+    color: #3a3a3a;
+}
+
+.index-service-content img {
+    width: 20vw;
+}
+
+.index-service-box {
+    display: table;
+    padding-top: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.index-service-imgBox {
+    display: table-cell;
+    vertical-align: middle;
+    justify-content: center;
+    height: 10vh;
+
+}
+
+.index-service-paragraph {
+    display: table-cell;
+    vertical-align: middle;
+    width: 60vw;
+    justify-content: center;
+    padding-top: 0em;
+}
+
+.index-service-content h1 {
+    margin: 0;
+    font-family: Muli;
+    font-weight: 900;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 0 4vw 0 4vw;
+}
+
+.index-service-content h2 {
+    margin: 0;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 1vh 4vw 0 4vw;
+    color: #3a3a3a;
+}
+
+#index-service-textgrid1 {
+    padding-top: 2vh;
+}
+
+.index-service-signup {
+    margin: 0;
+    text-align: center;
+    padding: 6vh 0 0 0;
+}
+
+/* Service page desktop grid */
+@media only screen and (min-width: 1000px) {
+    .index-service {
+        width: 100%;
+        height: 220vh;
+        background-color: white;
+        display: table;
+    }
+
+    .index-service-title h1 {
+        margin: 0;
+        font-family: Muli;
+        font-weight: 900;
+        font-size: 5em;
+        padding: 15vh 40vw 0 11vw;
+        line-height: 10vh;
+    }
+
+    .index-service-title h2 {
+        margin: 0;
+        font-family: Lato;
+        font-weight: 400;
+        font-size: 2em;
+        line-height: 1.25em;
+        padding: 2em 30vw 0px 11vw;
+        color: #3a3a3a;
+    }
+
+    .index-service-content img {
+        width: 8vw;
+        padding: 2vh 0 0 0;
+    }
+
+    .index-service-box {
+        display: table;
+        padding-bottom: 8vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .index-service-imgBox {
+        display: table-cell;
+        justify-content: center;
+        height: 12vh;
+        padding-left: 20vw;
+
+    }
+
+    .index-service-paragraph {
+        display: table-cell;
+        vertical-align: middle;
+        width: 50vw;
+        justify-content: center;
+        padding-top: 2.5vh;
+    }
+
+    .index-service-content h1 {
+        margin: 0;
+        font-family: Muli;
+        font-weight: 900;
+        font-size: 2.2em;
+        padding: 0 10vw 0 2vw;
+    }
+
+    .index-service-content h2 {
+        margin: 0;
+        font-family: Lato;
+        font-weight: 400;
+        font-size: 2em;
+        line-height: 1.25em;
+        padding: 0 10vw 0 2vw;
+        color: #3a3a3a;
+    }
+}
+
+.index-step-bar {
+    height: 90vh;
+    background-color: white;
+    display: table;
+    margin: 0;
+}
+
+.index-step-bar-textanddot {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.index-step-bar-title h1,
+.index-customerfeedback h1 {
+    margin: 0;
+    font-family: Muli;
+    font-weight: 900;
+    font-size: 2em;
+    line-height: 1em;
+    padding: 0px 15vw 0px 10vw;
+}
+
+.index-step-bar-content h2 {
+    margin: 0;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 0.5vh 10vw 0 0vw;
+    color: #3a3a3a;
+
+}
+
+.index-step-bar-content {
+    display: table;
+}
+
+.index-shell {
+    width: 100%;
+}
+
+.index-step-bar-content-cell {
+    display: table-cell;
+    padding-left: 17vw;
+    padding-top: 5vh;
+}
+
+.index-step-bar-content-cell-dot {
+    width: 1.6vh;
+    height: 1.6vh;
+    background-color: #4603ff;
+    display: inline-block;
+    border-radius: 5em;
+}
+
+.index-step-bar-sign-up {
+    margin: 0;
+    text-align: center;
+    padding: 10vh 0 0 0;
+}
+
+/* Setpbar page desktop grid */
+@media only screen and (min-width: 1000px) {
+    .index-step-bar {
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+        display: table;
+        margin: 0;
+    }
+
+    .index-step-bar-textanddot {
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 10vh 0 0 0;
+    }
+
+    .index-step-bar-title h1,
+    .index-customerfeedback h1 {
+        margin: 0;
+        font-family: Muli;
+        font-weight: 900;
+        font-size: 5em;
+        line-height: 10vh;
+        padding: 15vh 45vw 0 11vw;
+
+    }
+
+    .index-step-bar-content h2 {
+        margin: 0;
+        font-family: Lato;
+        font-weight: 400;
+        font-size: 2em;
+        line-height: 1.25em;
+        padding: 0.5em 2vw 0 0;
+        color: #3a3a3a;
+
+
+    }
+
+    .index-step-bar-content {
+        display: table;
+    }
+
+    .index-step-bar-content-cell {
+        display: table-cell;
+        width: 28vw;
+        padding-left: 5vw;
+
+    }
+
+    .index-step-bar-content-cell-dot {
+        width: 1.5em;
+        height: 1.5em;
+        background-color: #4603ff;
+        display: inline-block;
+        border-radius: 5em;
+    }
+
+    .index-step-bar-sign-up {
+        margin: 0 auto;
+        padding: 12vh 0 0 0;
+    }
+}
+
+/* Index-WHY US page */
+
+.index-whyus {
+    background-color: white;
+    height: 220vh;
+    width: 100vw;
+}
+
+.index-whyus-title h1 {
+    margin: 0;
+    font-family: Muli;
+    font-weight: 900;
+    font-size: 2em;
+    line-height: 1em;
+    padding: 10vh 15vw 0px 10vw;
+}
+
+.index-whyus-title h2 {
+    margin: 0;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 5vh 10vw 0 10vw;
+
+
+}
+
+.index-whyus-content {
+    padding-bottom: 3vh;
+    width: 100vw;
+}
+
+.index-whyus-content-line {
+    height: 1vh;
+    width: 80vw;
+    background-color: #4503fd;
+}
+
+.index-whyus-content-line-grid {
+    padding-left: 10vw;
+    padding-top: 5vh;
+}
+
+.index-whyus-content h1 {
+    margin: 0;
+    font-family: Muli;
+    font-weight: 900;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 5vh 15vw 0px 10vw;
+
+}
+
+.index-whyus-content h2 {
+    margin: 0;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 2vh 10vw 0 10vw;
+    color: #3a3a3a;
+}
+
+/* Why us page desktop grid */
+@media only screen and (min-width: 1000px) {
+    .index-whyus {
+        background-color: white;
+        height: 200vh;
+        width: 100vw;
+    }
+
+    .index-whyus-title h1 {
+        margin: 0;
+        font-family: Muli;
+        font-weight: 900;
+        font-size: 5em;
+        padding: 15vh 40vw 0 11vw;
+        line-height: 10vh;
+    }
+
+
+
+    .index-whyus-title h2 {
+        margin: 0;
+        font-family: Lato;
+        font-weight: 400;
+        font-size: 2em;
+        line-height: 1.25em;
+        padding: 2em 30vw 0px 11vw;
+        color: #3a3a3a;
+
+
+    }
+
+    .index-whyus-content {
+        padding-bottom: 3vh;
+        width: 100vw;
+    }
+
+
+    .index-whyus-content h1 {
+        margin: 0;
+        font-family: Muli;
+        font-weight: 900;
+        font-size: 2.2em;
+        padding: 5vh 10vw 0 11vw;
+    }
+
+    .index-whyus-content h2 {
+        margin: 0;
+        font-family: Lato;
+        font-weight: 400;
+        font-size: 2em;
+        line-height: 1.25em;
+        padding: 3vh 10vw 0 11vw;
+        color: #3a3a3a;
+
+    }
+}
+
+/* Counting up page */
+
+.index-socialfact {
+    font-family: Muli;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    padding: 0 1vw 8vh 1vw;
+    color: #4503fd;
+    background-color: #f9d3a0;
+    text-transform: uppercase;
+    height: calc(60vh - 50px);
+}
+
+.index-socialfact-num {
+    font-family: Muli;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    padding: 0.5vh 4vw 1vh 4vw;
+}
+
+
+.index-socialfact-col {
+    text-align: center;
+    display: table-cell;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 8vh;
+    width: 50vw;
+}
+
+.index-socialfact-icon {
+    width: 15vw;
+}
+
+/* Counting up page desktop grid */
+@media only screen and (min-width: 1000px) {
+    .index-socialfact {
+        font-family: Lato;
+        color: #4503fd;
+        background-color: #f9d3a0;
+        text-transform: lowercase;
+        height: 80vh;
+        font-size: 2em;
+        line-height: 1.25em;
+        display: inline-flex;
+        width: 100vw;
+        padding: 0;
+        margin: 0;
+    }
+
+    .index-socialfact-countingsec {
+        width: 100vw;
+        text-align: center;
+        padding: 5vh 0 5vh 0;
+    }
+
+    .index-socialfact-num {
+        font-family: Muli;
+        font-size: 3vw;
+        padding: 0.5vh 0 1vh 0vw;
+        text-align: center;
+    }
+
+
+    .index-socialfact-col {
+        text-align: center;
+        display: table-cell;
+        width: 10vw;
+
+    }
+
+    .index-socialfact-row {
+        display: inline-flex;
+        margin: 0;
+    }
+
+    .index-socialfact-icon {
+        width: 10vw;
+    }
+
+    .index-socialfact-innerwidth {
+
+        margin: 0;
+        padding: 0;
+    }
+
+}
+
+/* customerfeedbackpage */
+
+.index-customerfeedback {
+    width: 100%;
+    height: 80vh;
+    background-color: #4603ff;
+    display: table;
+}
+
+.index-customerfeedback-grid {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.index-customerfeedback h3 {
+    margin: 0;
+    font-family: Muli;
+    font-weight: 900;
+    color: white;
+    font-size: 2em;
+    line-height: 1em;
+    padding: 0px 15vw 5vh 10vw;
+
+}
+
+#index-customerfeedback-slider,
+.index-customerfeedback-wrap,
+.slide-content {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 45vh;
+    overflow-x: hidden;
+}
+
+.index-customerfeedback-wrap {
+    position: relative;
+}
+
+.slide {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slide1 {
+    background-image: url('../image/customer1.png');
+}
+
+.slide2 {
+    background-image: url('../image/customer2.png');
+}
+
+.slide3 {
+    background-image: url('../image/customer3.png');
+}
+
+.slide-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slide-content span h1 {
+    margin: 0;
+    font-family: Muli;
+    font-weight: 900;
+    text-align: center;
+    text-shadow: 0px 1px 6px rgb(122, 122, 122);
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 0 4vw 0 4vw;
+}
+
+.slide-content span h2 {
+    margin: 0;
+    font-family: Lato;
+    color: rgb(29, 29, 29);
+    text-align: center;
+    text-shadow: 0px 1px 6px rgb(122, 122, 122);
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 1vh 10vw 0 10vw;
+}
+
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -3.2em;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+#arrow-left {
+    border-width: 0.8em 1.4em 0.8em 0;
+    border-color: transparent #4603ff transparent transparent;
+    left: 0;
+    margin-left: 1em;
+
+}
+
+#arrow-right {
+    border-width: 0.8em 0 0.8em 1.4em;
+    border-color: transparent transparent transparent #4603ff;
+    right: 0;
+    margin-right: 1em;
+}
+
+/* Customerfeedback page desktop grid */
+@media only screen and (min-width: 1000px) {
+    .index-customerfeedback {
+        width: 100%;
+        height: 90vh;
+        background-color: #4603ff;
+        display: table;
+    }
+
+    .index-customerfeedback-grid {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .index-customerfeedback h3 {
+        margin: 0;
+        font-family: Muli;
+        font-weight: 900;
+        font-size: 5em;
+        line-height: 10vh;
+        padding: 0 45vw 8vh 11vw;
+        color: white;
+    }
+
+    #index-customerfeedback-slider,
+    .index-customerfeedback-wrap,
+    .slide-content {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 50vh;
+        overflow-x: hidden;
+    }
+
+    .index-customerfeedback-wrap {
+        position: relative;
+    }
+
+    .slide {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .slide1 {
+        background-image: url('../image/customer1.png');
+    }
+
+    .slide2 {
+        background-image: url('../image/customer2.png');
+    }
+
+    .slide3 {
+        background-image: url('../image/customer3.png');
+    }
+
+    .slide-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .slide-content span h1 {
+        font-size: 1rem;
+        margin: 0;
+        font-family: Muli;
+        font-size: 2em;
+        line-height: 1.25em;
+        font-weight: 900;
+        line-height: 16px;
+        padding: 0 0 3vh 0;
+        text-align: center;
+        text-shadow: 0 0.5vh 1vh rgb(122, 122, 122);
+    }
+
+    .slide-content span h2 {
+        font-size: 2em;
+        line-height: 1.25em;
+        margin: 0;
+        font-family: Lato;
+        color: rgb(29, 29, 29);
+        padding: 0 20vh 0 20vh;
+        text-align: center;
+        text-shadow: 0 0.5vh 1vh rgb(122, 122, 122);
+    }
+
+    .arrow {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+    }
+
+    #arrow-left {
+        border-width: 3vh 3vw 3vh 0;
+        border-color: transparent #4603ff transparent transparent;
+        left: 0;
+        padding-left: 10vh;
+
+    }
+
+    #arrow-right {
+        border-width: 3vh 0 3vh 3vw;
+        border-color: transparent transparent transparent #4603ff;
+        right: 0;
+        padding-right: 10vh;
+
+    }
+}
+
+
+
+
+
+
+/* FOOTER*/
+
+footer {
+    width: calc(100% - 80px);
+    padding: 40px 40px;
+    background-color: #4603ff;
+    overflow: hidden;
+}
+
+footer ul {
+    width: fit-content;
+    float: left;
+    padding-left: 20px;
+}
+
+footer ul li {
+    display: block;
+    list-style: none;
+}
+
+footer ul li a {
+    font-family: Lato;
+    font-size: 24px;
+    color: whitesmoke;
+    line-height: 40px;
+}
+
+.footer-links-service {
+    display: none;
+}
+
+.footer-sm {
+    width: 50px;
+    float: right;
+}
+
+.footer-sm img {
+    width: 100%;
+    margin-top: 20px;
+
+    padding-right: 20px;
+}
+
+/* FOOTER desktop grid */
+@media only screen and (min-width: 1000px) {
+    footer {
+        width: calc(100% - 80px);
+        padding: 40px 40px;
+        background-color: #4603ff;
+        overflow: hidden;
+    }
+
+    footer ul {
+        width: fit-content;
+        float: left;
+        padding-left: 10vw;
+    }
+
+    footer ul li {
+        display: block;
+        list-style: none;
+    }
+
+    footer ul li a,
+    footer ul li {
+        font-family: Lato;
+        font-size: 24px;
+        color: whitesmoke;
+        line-height: 40px;
+    }
+
+    .footer-links-service {
+        display: block;
+    }
+
+    .footer-sm {
+        width: 50px;
+        float: right;
+        padding-right: 10vw;
+    }
+
+    .footer-sm img {
+        width: 100%;
+        margin-top: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+/* ==> Sign Up Form Css <== */
+
+
+
+.form-basicinfo {
+    box-sizing: border-box;
+    font-family: Lato;
+    width: 100vw;
+    margin: 2vh auto;
+    background-color: whitesmoke;
+    border-radius: 1.5vh;
+    padding: 2vh 2vw;
+}
+
+.signup-bar {
+    height: 29px;
+    width: 100vw;
+    border: 2px solid red;
+}
+
+.signup-bar h1 {
+    margin: 0 auto;
+    text-align: center;
+    font-family: Muli;
+    text-transform: uppercase;
+    font-size: 3vh;
+    padding-bottom: 8vh;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    font-size: 3vh;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 0.5em;
+    width: 80vw;
+    background-color: #e8eeef;
+    color: #8a98a0;
+    box-shadow: 0 0 0.7vh rgb(0, 0, 0, 0.1) inset;
+    margin-bottom: 2vh;
+    display: block;
+}
+
+input:focus,
+textarea:focus {
+    box-shadow: 0 0 0.5vh rgb(40, 2, 253);
+    border: 1px solid rgb(40, 2, 253);
+}
+
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin: 1em 0em 0em 0;
+}
+
+select {
+    padding: 0.5em;
+    height: 8vh;
+    width: 97%;
+}
+
+fieldset {
+    margin-bottom: 30px;
+    border: none;
+}
+
+legend {
+    display: block;
+    margin-bottom: 1vh;
+}
+
+label.light {
+    display: inline;
+}
+
+.form-basicinfo-section {
+    background-color: #4503fd;
+    color: #fff;
+    height: 2em;
+    width: 2em;
+    display: inline-block;
+    font-size: 1em;
+    margin-right: 2vw;
+    line-height: 2em;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-radius: 100%;
+}
+
+.form-signupbutton {
+    padding: 2vh 10vw 2vh 10vw;
+    color: #fff;
+    background-color: #4503fd;
+    font-size: 1.4em;
+    text-align: center;
+    border-radius: 5em;
+    width: 100%;
+    border: 1px solid blueviolet;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+
+}
+
+.form-rememberme,
+.form-agreement {
+    margin: 0 auto;
+    padding-left: 4vw;
+
+}
+
+.form-basicinfo-title-gender,
+.form-basicinfo-title-interests {
+    padding-bottom: 10px;
+}
+
+/* ==> End of Sign Up Form Css <== */
+
+/* Sign Up Form desktop grid */
+@media only screen and (min-width: 1000px) {
+    .form-basicinfo {
+        box-sizing: border-box;
+        font-family: Lato;
+        width: 100vw;
+        margin: 2vh auto;
+        background-color: whitesmoke;
+        border-radius: 1.5vh;
+        padding: 2vh 2vw;
+        font-size: 2.2vh;
+    }
+
+    .form-basicinfo h1 {
+        margin: 0 auto;
+        text-align: center;
+        font-family: Muli;
+        text-transform: uppercase;
+        font-size: 4vh;
+        margin-top: -2vh;
+        padding-bottom: 15vh;
+    }
+
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea,
+    select {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        font-size: 2vh;
+        height: 4vh;
+        margin: 0;
+        outline: 0;
+        padding: 1vh;
+        width: 80vw;
+        background-color: #e8eeef;
+        color: black;
+        box-shadow: 0 0 0.7vh rgb(0, 0, 0, 0.1) inset;
+        margin-bottom: 2vh;
+        display: block;
+    }
+
+    input:focus,
+    textarea:focus {
+        box-shadow: 0 0 0.5vh rgb(40, 2, 253);
+        border: 1px solid rgb(40, 2, 253);
+    }
+
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        height: 2vh;
+        width: 2vh;
+    }
+
+    select {
+        padding: 0.5em;
+        height: 8vh;
+        width: 95%;
+    }
+
+    fieldset {
+        margin-bottom: 30px;
+        border: none;
+        padding: 0 0vw 0 10vw;
+    }
+
+    legend {
+        display: block;
+        margin-bottom: 1vh;
+        padding: 5vh 0 2vh 0;
+    }
+
+    label.light {
+        display: inline;
+    }
+
+    .form-basicinfo-section {
+        background-color: #4503fd;
+        color: #fff;
+        height: 2em;
+        width: 2em;
+        display: inline-block;
+        font-size: 1em;
+        margin-right: 2vw;
+        line-height: 2em;
+        text-align: center;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-radius: 100%;
+    }
+
+    .form-signupbutton {
+        padding: 2vh 5vw 2vh 5vw;
+        color: #fff;
+        background-color: #4503fd;
+        font-size: 1.2em;
+        text-align: center;
+        border-radius: 5em;
+        width: 100%;
+        border: 1px solid blueviolet;
+        border-width: 1px 1px 3px;
+        box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+        cursor: pointer;
+
+    }
+
+    .form-rememberme,
+    .form-agreement {
+        margin: 0 auto;
+        padding-left: 10vw;
+
+    }
+
+    .form-basicinfo-title-gender,
+    .form-basicinfo-title-interests {
+        padding-bottom: 1vh;
+    }
+
+    .form-basicinfo-blockgrid {
+        padding-top: 0vh;
+    }
+
+
+}
+
+
+/* landing page*/
+.landing-introduction {
+    width: 100%;
+    height: 85vh;
+    background-image: url('../image/introdution-backgroundimage2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: table;
+}
+
+.landing-introduction-text {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.landing-introduction h1 {
+    margin: 0;
+    font-family: Muli;
+    font-weight: 900;
+    font-size: 0.2em;
+    line-height: 1em;
+    padding: 0px 15vw 0px 10vw;
+    text-align: center;
+}
+
+.landing-introduction h2 {
+    margin: 0;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 5vh 20vw 0 10vw;
+    color: #3a3a3a;
+}
+
+
+.animation-div {
+    width: 100vw;
+    height: 100vh;
+    border: 2px solid red;
+    background-color: var(--primary-color);
+    animation-duration: 1.4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+#animation-div-1 {
+    animation-name: endpointWelcome;
+}
+
+
+
+@keyframes endpointWelcome {
+    from {
+        transform: translate(0, -55vh);
+        opacity: 100%;
+
+    }
+
+    to {
+        transform: translate(0, 55vh);
+        opacity: 0;
+
+    }
+}
+
+.landing-introduction h1 {
+    font-display: Lato;
+    font-size: 5vh;
+    padding-top: 33vh;
+    animation-duration: 1.2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-name: endpointWelcomeText;
+    animation-delay: 1.5s;
+}
+
+@keyframes endpointWelcomeText {
+    from {
+        transform: translate(0, 0);
+        opacity: 100;
+    }
+
+    to {
+        transform: translate(0, -100vh);
+        opacity: 0;
+    }
+}
+
+.landing-service img {
+    width: 60vw;
+    margin: 0;
+    top: 30vh;
+    display: flex;
+    float: column;
+    text-align: center;
+}
+
+.landing-service {
+    width: 30vw;
+    height: 60vh;
+    border: 1px solid var(--primary-color);
+    background-image: url('../image/landing1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 20vh;
+    left: 15vw;
+    animation-duration: 1.2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-name: endpointWelcomePic;
+    animation-delay: 1.8s;
+    opacity: 0%;
+    font-family: Lato;
+    font-size: 5vh;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-service-child {
+    opacity: 0;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-service div {
+    width: 100%;
+    height: 30%;
+    background-color: rgba(70, 3, 255, 0.8);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+
+@keyframes endpointWelcomePic {
+    from {
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
+.landing-service:hover {
+    box-shadow: 0 1vh 2vh var(--primary-color);
+}
+
+.landing-service:hover .landing-service-child {
+    opacity: 100%;
+}
+
+.landing-service:hover .landing-service-divchild {
+    opacity: 100%;
+}
+
+
+
+
+
+
+
+
+
+.landing-service2 img {
+    width: 60vw;
+    margin: 0;
+    top: 30vh;
+    display: flex;
+    float: column;
+    text-align: center;
+}
+
+.landing-service2 {
+    width: 30vw;
+    height: 60vh;
+    border: 1px solid var(--primary-color);
+    background-image: url('../image/landing2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 20vh;
+    left: 50vw;
+    animation-duration: 1.2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-name: endpointWelcomePic;
+    animation-delay: 1.8s;
+    opacity: 0%;
+    font-family: Lato;
+    font-size: 5vh;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-service-child2 {
+    opacity: 0;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-service2 div {
+    width: 100%;
+    height: 30%;
+    background-color: rgba(70, 3, 255, 0.8);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+
+@keyframes endpointWelcomePic {
+    from {
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
+.landing-service2:hover {
+    box-shadow: 0 1vh 2vh var(--primary-color);
+}
+
+.landing-service2:hover .landing-service-child2 {
+    opacity: 100%;
+}
+
+.landing-service2:hover .landing-service-divchild2 {
+    opacity: 100%;
+}
+
+
+
+
+
+
+
+
+
+/* Landing page desktop grid */
+@media only screen and (min-width: 1000px) {
+    .landing-introduction {
+        width: 100%;
+        height: 85vh;
+        background-image: url('../image/introdution-backgroundimage2.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: table;
+    }
+
+    .landing-introduction-text {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .landing-introduction h1 {
+        margin: 0;
+        font-family: Muli;
+        font-weight: 900;
+        font-size: 3em;
+        line-height: 1em;
+        padding: 0px 15vw 0px 10vw;
+        text-align: center;
+    }
+
+    .landing-introduction h2 {
+        margin: 0;
+        font-family: Lato;
+        font-weight: 400;
+        font-size: 1.1em;
+        line-height: 1.5em;
+        padding: 5vh 20vw 0 10vw;
+        color: #3a3a3a;
+    }
+
+
+    .animation-div {
+        width: 100vw;
+        height: 100vh;
+        border: 2px solid red;
+        background-color: var(--primary-color);
+        animation-duration: 1.4s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+
+
+    #animation-div-1 {
+        animation-name: endpointWelcome;
+    }
+
+
+
+    @keyframes endpointWelcome {
+        from {
+            transform: translate(0, -55vh);
+            opacity: 100%;
+
+        }
+
+        to {
+            transform: translate(0, 55vh);
+            opacity: 0;
+
+        }
+    }
+
+    .landing-introduction h1 {
+        font-display: Lato;
+        font-size: 12vh;
+        padding-top: 16vw;
+        animation-duration: 1.2s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-name: endpointWelcomeText;
+        animation-delay: 1.5s;
+    }
+
+    @keyframes endpointWelcomeText {
+        from {
+            transform: translate(0, 0);
+            opacity: 100;
+        }
+
+        to {
+            transform: translate(0, -100vh);
+            opacity: 0;
+        }
+    }
+
+    .landing-service img {
+        width: 60vw;
+        margin: 0;
+        top: 30vh;
+        display: flex;
+        float: column;
+        text-align: center;
+    }
+
+    .landing-service {
+        width: 30vw;
+        height: 60vh;
+        border: 1px solid var(--primary-color);
+        background-image: url('../image/landing1.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        top: 20vh;
+        left: 15vw;
+        animation-duration: 1.2s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-name: endpointWelcomePic;
+        animation-delay: 1.8s;
+        opacity: 0%;
+        font-family: Lato;
+        font-size: 7vh;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .landing-service-child {
+        opacity: 0;
+        color: white;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .landing-service div {
+        width: 100%;
+        height: 30%;
+        background-color: rgba(70, 3, 255, 0.8);
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+
+    @keyframes endpointWelcomePic {
+        from {
+            opacity: 0%;
+        }
+
+        to {
+            opacity: 100%;
+        }
+    }
+
+    .landing-service:hover {
+        box-shadow: 0 1vh 2vh var(--primary-color);
+    }
+
+    .landing-service:hover .landing-service-child {
+        opacity: 100%;
+    }
+
+    .landing-service:hover .landing-service-divchild {
+        opacity: 100%;
+    }
+
+
+
+
+
+
+
+
+
+    .landing-service2 img {
+        width: 60vw;
+        margin: 0;
+        top: 30vh;
+        display: flex;
+        float: column;
+        text-align: center;
+    }
+
+    .landing-service2 {
+        width: 30vw;
+        height: 60vh;
+        border: 1px solid var(--primary-color);
+        background-image: url('../image/landing2.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        top: 20vh;
+        left: 50vw;
+        animation-duration: 1.2s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-name: endpointWelcomePic;
+        animation-delay: 1.8s;
+        opacity: 0%;
+        font-family: Lato;
+        font-size: 7vh;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .landing-service-child2 {
+        opacity: 0;
+        color: white;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .landing-service2 div {
+        width: 100%;
+        height: 30%;
+        background-color: rgba(70, 3, 255, 0.8);
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+
+    @keyframes endpointWelcomePic {
+        from {
+            opacity: 0%;
+        }
+
+        to {
+            opacity: 100%;
+        }
+    }
+
+    .landing-service2:hover {
+        box-shadow: 0 1vh 2vh var(--primary-color);
+    }
+
+    .landing-service2:hover .landing-service-child2 {
+        opacity: 100%;
+    }
+
+    .landing-service2:hover .landing-service-divchild2 {
+        opacity: 100%;
+    }
+
+}
